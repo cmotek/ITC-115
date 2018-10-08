@@ -3,8 +3,13 @@ public class Fibonacci {
 
 	public static void main(String[] args) {
 		
-		for(int i = 1; i <= 10; i++) {
-			System.out.print(i * i + " ");
+		int num = 0, num2 = 1;
+		for(int i = 0; i <= 11; i++) {
+			System.out.print(num2 + " ");
+			
+			int sum = num + num2;
+			num = num2;
+			num2 = sum;
 		}
 		
 	}
