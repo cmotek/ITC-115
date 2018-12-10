@@ -1,1 +1,57 @@
 
+BankAccount.java
+
+
+public class BankAccount {
+	
+	String name;
+	double balance;
+	double transactionFee = 0.00;
+
+	public BankAccount() {
+		this.balance = 500.00;
+		
+	}
+	
+	public void deposit(String myName, double amount) {
+		name = myName;
+		balance = balance + amount;
+	}
+
+	public void withdraw(String myName, double amount, double fee) {
+		name = myName;
+		transactionFee = fee;
+		balance = balance - amount - transactionFee;
+		
+		if(balance < 0) {
+			throw new IllegalArgumentException("You Don't Have Enough Money!");
+		}	
+	}
+	
+	public String toString() {
+		return(name + ", " + balance);
+	}
+}
+
+bankAccountmain.java
+
+public class bankAccountmain {
+	
+	public static void main(String[] args) {
+		
+		BankAccount b1 = new BankAccount();
+		
+		b1.deposit("Christopher", 5.00);	
+		System.out.println(b1.balance);
+		
+		b1.withdraw("Christopher", 5.00, 3.00);
+		System.out.println(b1.balance);
+		
+		System.out.println(b1.toString());
+		
+		b1.withdraw("Christopher", 600.00, 3.00);
+		System.out.println(b1.balance);
+		
+	}
+	
+}
